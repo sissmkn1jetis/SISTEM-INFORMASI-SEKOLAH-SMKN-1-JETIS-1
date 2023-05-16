@@ -1,0 +1,308 @@
+//Register
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "Admin",
+    "email": "admin@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678",
+    "roles": ["admin"]
+}
+###
+//Delete user
+DELETE http://localhost:8080/api/auth/signup/19
+###
+//Register
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "Guru",
+    "email": "guru@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678",
+    "roles": ["guru"]
+}
+
+###
+//Register
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "Walas",
+    "email": "walas@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678",
+    "roles": ["admin"]
+}
+
+
+
+
+
+
+
+
+
+###
+//Login
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "12345678"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
+//Get guru
+GET http://localhost:8080/api/auth/me
+
+###
+//Get guru
+GET http://localhost:8080/api/test/listguru
+
+###
+//Get gurubyid
+GET http://localhost:8080/api/test/listguru/2
+
+###
+//Create Guru
+POST http://localhost:8080/api/test/listguru
+Content-Type: application/json
+
+{
+    "nip": 10005,
+    "name": "Kang Dikdik",
+    "tgl_lahir": "2000-08-20",
+    "jkg": "laki-laki",
+    "alamat": "Kota Bikini bottom"
+}
+
+###
+//Updated Guru
+PATCH http://localhost:8080/api/test/listguru/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nip": 10001,
+    "name": "Ujang updated",
+    "tgl_lahir": "2000-08-19",
+    "jkg": "laki-laki",
+    "alamat": "Kota Bikini bottom"
+}
+
+###
+//Get delete guru
+DELETE http://localhost:8080/api/test/listguru/1
+
+###
+//Get All user
+GET http://localhost:8080/api/test/user
+
+###
+//Get One user
+GET http://localhost:8080/api/test/user/1
+
+###
+//create User pada admin
+POST http://localhost:8080/api/test/user
+Content-Type: application/json
+
+{
+    "username": "Administrator",
+    "email": "administrator@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678",
+    "role": "admin"
+}
+
+
+###
+//create User pada admin
+POST http://localhost:8080/api/test/user
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "email": "admin@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678",
+    "role": "admin",
+    "tempat_lahir": "Konoha", 
+    "tanggal_lahir": "2000-08-19", 
+    "jenis_kelamin": "L", 
+    "agama": "Islam",
+    "alamat": "Jalan Manggis GG Gajah", 
+    "almt_kel": "Konoha", 
+    "almt_kec": "Konoha", 
+    "almt_kab": "Kota Konoha", 
+    "almt_prov": "Konoha",
+    "no_telp": "08123456789"
+}
+
+
+
+
+
+
+
+
+###
+//update User pada admin
+PUT http://localhost:8080/api/test/user/1
+Content-Type: application/json
+
+{
+    "username": "administrator",
+    "email": "administrator@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678",
+    "role": "admin",
+    "tempat_lahir": "Mojokerto", 
+    "tanggal_lahir": "2000-08-19", 
+    "jenis_kelamin": "L", 
+    "agama": "Islam",
+    "alamat": "Jalan Sekar Putih GG Macan", 
+    "almt_kel": "Magersari", 
+    "almt_kec": "Kedundung", 
+    "almt_kab": "Kota Mojokerto", 
+    "almt_prov": "Jawa Timur",
+    "no_telp": "08123456789"
+}
+
+###
+//Delete user
+DELETE http://localhost:8080/api/test/user/1
+
+###
+//create jurusan
+POST http://localhost:8080/api/test/listmapel
+Content-Type: application/json
+
+{
+    "name_mapel": "Matematika"
+}
+###
+//create User pada admin
+PATCH http://localhost:8080/api/test/listguru/12
+Content-Type: application/json
+
+{
+    "username": "kankuro",
+    "email": "kankuro@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678",
+    "role": "guru",
+    "name": "kankuro",
+    "nip": "111005",
+    "alamat": "Kota Konoha",
+    "tgl_lahir": "2000-08-19",
+    "jkg": "laki-laki",
+    "mapelId": 1
+}
+
+###
+//Get All user
+DELETE http://localhost:8080/api/test/listguru/4
+
+###
+//Get All user
+GET http://localhost:8080/api/test/listmapel
+
+###
+//Get All user
+GET http://localhost:8080/api/test/listguru/2
+
+###
+//create User pada admin
+POST http://localhost:8080/api/test/listguru
+Content-Type: application/json
+
+{
+    "nip": "001",
+    "bidang_studi": "Matematika",
+    "userId": 2
+
+}
+
+###
+//create User pada admin
+PATCH http://localhost:8080/api/test/listguru/4
+Content-Type: application/json
+
+{
+    "nip": "111005",
+    "bidang_studi": "Fisika",
+    "userId": 5,
+    "username": "Kankuro",
+    "email": "Kankuro@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678",
+    "role": "guru",
+    "tempat_lahir": "Mojokerto", 
+    "tanggal_lahir": "2000-08-19", 
+    "jenis_kelamin": "L", 
+    "agama": "Islam",
+    "alamat": "Jalan Sekar Putih GG Macan", 
+    "almt_kel": "Magersari", 
+    "almt_kec": "Kedundung", 
+    "almt_kab": "Kota Mojokerto", 
+    "almt_prov": "Jawa Timur",
+    "no_telp": "08123456789"
+}
+
+###
+//create User pada admin
+GET http://localhost:8080/api/test/listjurusan
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc5ODM2MDAxLCJleHAiOjE2Nzk4Mzk2MDF9.q1P71Qu6qj1r5UnNDX4m4GuQ1pLLjlimhep_nooW-gw
+
+
+###
+//create User pada admin
+GET http://localhost:8080/api/test/listjurusan/2
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc5ODM2MDAxLCJleHAiOjE2Nzk4Mzk2MDF9.q1P71Qu6qj1r5UnNDX4m4GuQ1pLLjlimhep_nooW-gw
+
+###
+//create User pada admin
+GET http://localhost:8080/api/test/listmapel
+# Content-Type: application/json
+
+# {
+#     "name_mapel": "Matematika"
+# }
+
+###
+//create User pada admin
+POST http://localhost:8080/api/test/listsiswa
+Content-Type: application/json
+
+{
+    "nis": 10001,
+    "name": "Naruto",
+    "jks": "L",
+    "tgl_lahir": "2000-08-19",
+    "alamat": "Jalan Badak GG Gajah",
+    "kelasId": 1
+}
