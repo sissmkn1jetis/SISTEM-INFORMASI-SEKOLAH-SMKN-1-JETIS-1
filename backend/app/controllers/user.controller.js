@@ -24,6 +24,10 @@ exports.Guru = (req, res) => {
   res.status(200).send("Guru Content.");
 };
 
+exports.Kabeng = (req, res) => {
+  res.status(200).send("Kabeng Content.");
+};
+
 // exports.getroles = async (req, res) => {
 //   try {
 //     const response = await Role.findAll({

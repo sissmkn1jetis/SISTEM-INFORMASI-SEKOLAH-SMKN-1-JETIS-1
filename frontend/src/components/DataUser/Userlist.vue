@@ -25,11 +25,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="card-tools">
-                  <button
-                    type="button"
-                    class="btn btn-success mb-2"
-                    @click="showModal"
-                  >
+                  <button type="button" class="btn btn-success mb-2" @click="showModal">
                     Tambah User
                   </button>
                 </div>
@@ -57,37 +53,23 @@
                         <td class="align-middle text-center">
                           {{ user.email }}
                         </td>
-                        <td
-                          class="align-middle text-center"
-                          v-if="user && user.role === 'guru'"
-                        >
+                        <td class="align-middle text-center" v-if="user && user.role === 'guru'">
                           <span class="badge bg-warning">{{ user.role }}</span>
                         </td>
-                        <td
-                          class="align-middle text-center"
-                          v-if="user && user.role === 'walas'"
-                        >
+                        <td class="align-middle text-center" v-if="user && user.role === 'walas'">
                           <span class="badge bg-success">{{ user.role }}</span>
                         </td>
-                        <td
-                          class="align-middle text-center"
-                          v-if="user && user.role === 'admin'"
-                        >
+                        <td class="align-middle text-center" v-if="user && user.role === 'admin'">
                           <span class="badge bg-info">{{ user.role }}</span>
                         </td>
+                        <td class="align-middle text-center" v-if="user && user.role === 'kabeng'">
+                          <span class="badge bg-primary">{{ user.role }}</span>
+                        </td>
                         <td class="align-middle text-center">
-                          <a
-                            href="#"
-                            class="badge bg-info mr-2"
-                            @click="showModalEdit(user.id)"
-                            ><i class="fas fa-edit"></i
-                          ></a>
-                          <a
-                            href="#"
-                            class="badge bg-danger"
-                            @click="deleteData(user.id)"
-                            ><i class="fas fa-trash-alt"></i
-                          ></a>
+                          <a href="#" class="badge bg-info mr-2" @click="showModalEdit(user.id)"><i
+                              class="fas fa-edit"></i></a>
+                          <a href="#" class="badge bg-danger" @click="deleteData(user.id)"><i
+                              class="fas fa-trash-alt"></i></a>
                         </td>
                       </tr>
                     </tbody>
@@ -98,37 +80,18 @@
           </div>
         </div>
       </div>
-      <div
-        class="modal fade"
-        id="modalmuncul"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="modalmuncul1"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="modalmuncul" tabindex="-1" role="dialog" aria-labelledby="modalmuncul1"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h5
-                class="modal-title"
-                id="exampleModalLongTitle"
-                v-show="!statusmodal"
-              >
+              <h5 class="modal-title" id="exampleModalLongTitle" v-show="!statusmodal">
                 Tambah Pengguna
               </h5>
-              <h5
-                class="modal-title"
-                id="exampleModalLongTitle"
-                v-show="statusmodal"
-              >
+              <h5 class="modal-title" id="exampleModalLongTitle" v-show="statusmodal">
                 Ubah Pengguna
               </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" @click="resetForm()">&times;</span>
               </button>
             </div>
@@ -136,279 +99,139 @@
               <div class="card card-default">
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form
-                  @submit.prevent="statusmodal ? updateData() : simpanData()"
-                >
+                <form @submit.prevent="statusmodal ? updateData() : simpanData()">
                   <div class="card-body">
                     <p v-if="message" class="alert-danger">
                       {{ message }}
                     </p>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="username"
-                        >Username:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="username">Username:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="username"
-                          placeholder="Username"
-                          v-model="form.username"
-                          required
-                        />
+                        <input type="text" class="form-control" id="username" placeholder="Username"
+                          v-model="form.username" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="tempat_lahir"
-                        >Tempat Lahir:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="tempat_lahir">Tempat Lahir:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="tempat_lahir"
-                          placeholder="Tempat Lahir"
-                          v-model="form.tempat_lahir"
-                          required
-                        />
+                        <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir"
+                          v-model="form.tempat_lahir" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="tanggal_lahir"
-                        >Tanggal Lahir:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="tanggal_lahir">Tanggal Lahir:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="date"
-                          class="form-control"
-                          id="tanggal_lahir"
-                          placeholder="Tanggal Lahir"
-                          v-model="form.tanggal_lahir"
-                          required
-                        />
+                        <input type="date" class="form-control" id="tanggal_lahir" placeholder="Tanggal Lahir"
+                          v-model="form.tanggal_lahir" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label"
-                        >Jenis Kelamin:</label
-                      >
+                      <label class="col-sm-3 col-form-label">Jenis Kelamin:</label>
                       <div class="col-sm-9 mt-2">
                         <label class="mb-0 mr-3">
-                          <input
-                            class="mr-1"
-                            type="radio"
-                            name="jenis_kelamin"
-                            id="jenis_kelamin"
-                            value="L"
-                            v-model="form.jenis_kelamin"
-                          />
+                          <input class="mr-1" type="radio" name="jenis_kelamin" id="jenis_kelamin" value="L"
+                            v-model="form.jenis_kelamin" />
                           Laki-Laki
                         </label>
                         <label class="mb-0 mr-3">
-                          <input
-                            class="mr-1"
-                            type="radio"
-                            name="jenis_kelamin"
-                            id="jenis_kelamin"
-                            value="P"
-                            v-model="form.jenis_kelamin"
-                          />
+                          <input class="mr-1" type="radio" name="jenis_kelamin" id="jenis_kelamin" value="P"
+                            v-model="form.jenis_kelamin" />
                           Perempuan
                         </label>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="agama"
-                        >Agama:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="agama">Agama:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="agama"
-                          placeholder="Agama"
-                          v-model="form.agama"
-                          required
-                        />
+                        <input type="text" class="form-control" id="agama" placeholder="Agama" v-model="form.agama"
+                          required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="alamat"
-                        >Alamat:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="alamat">Alamat:</label>
                       <div class="col-sm-9">
-                        <textarea
-                          rows="3"
-                          class="form-control"
-                          id="alamat"
-                          placeholder="Alamat"
-                          v-model="form.alamat"
-                          required
-                        ></textarea>
+                        <textarea rows="3" class="form-control" id="alamat" placeholder="Alamat" v-model="form.alamat"
+                          required></textarea>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="almt_kel"
-                        >Kelurahan:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="almt_kel">Kelurahan:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="almt_kel"
-                          placeholder="Kelurahan"
-                          v-model="form.almt_kel"
-                          required
-                        />
+                        <input type="text" class="form-control" id="almt_kel" placeholder="Kelurahan"
+                          v-model="form.almt_kel" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="almt_kec"
-                        >Kecamatan:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="almt_kec">Kecamatan:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="almt_kec"
-                          placeholder="Kecamatan"
-                          v-model="form.almt_kec"
-                          required
-                        />
+                        <input type="text" class="form-control" id="almt_kec" placeholder="Kecamatan"
+                          v-model="form.almt_kec" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="almt_kab"
-                        >Kabupaten/Kota:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="almt_kab">Kabupaten/Kota:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="almt_kab"
-                          placeholder="Kabupaten/Kota"
-                          v-model="form.almt_kab"
-                          required
-                        />
+                        <input type="text" class="form-control" id="almt_kab" placeholder="Kabupaten/Kota"
+                          v-model="form.almt_kab" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="almt_prov"
-                        >Provinsi:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="almt_prov">Provinsi:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="almt_prov"
-                          placeholder="Provinsi"
-                          v-model="form.almt_prov"
-                          required
-                        />
+                        <input type="text" class="form-control" id="almt_prov" placeholder="Provinsi"
+                          v-model="form.almt_prov" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="inputEmail"
-                        >Email:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="inputEmail">Email:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="inputEmail"
-                          placeholder="Email"
-                          v-model="form.email"
-                          required
-                        />
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" v-model="form.email"
+                          required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="password"
-                        >Password:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="password">Password:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="password"
-                          placeholder="*******"
-                          v-model="form.password"
-                          required
-                        />
+                        <input type="password" class="form-control" id="password" placeholder="*******"
+                          v-model="form.password" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="confPassword"
-                        >Confirm Password:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="confPassword">Confirm Password:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="confPassword"
-                          placeholder="*******"
-                          v-model="form.confPassword"
-                          required
-                        />
+                        <input type="password" class="form-control" id="confPassword" placeholder="*******"
+                          v-model="form.confPassword" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="confPassword"
-                        >Role:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="confPassword">Role:</label>
                       <div class="col-sm-9">
-                        <select
-                          class="custom-select"
-                          v-model="form.role"
-                          required
-                        >
+                        <select class="custom-select" v-model="form.role" required>
                           <option disabled value="">-- Pilih --</option>
                           <option value="admin">Admin</option>
                           <option value="guru">Guru</option>
                           <option value="walas">Walas</option>
+                          <option value="kabeng">Kabeng</option>
                         </select>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="phoneNumber"
-                        >No.Tlp:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="phoneNumber">No.Tlp:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="number"
-                          class="form-control"
-                          id="phoneNumber"
-                          placeholder="No.Tlp"
-                          v-model="form.no_telp"
-                          required
-                        />
+                        <input type="number" class="form-control" id="phoneNumber" placeholder="No.Tlp"
+                          v-model="form.no_telp" required />
                       </div>
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                      @click="resetForm()"
-                    >
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="resetForm()">
                       Close
                     </button>
-                    <button
-                      type="submit"
-                      class="btn btn-primary"
-                      :disabled="disabled"
-                      v-show="!statusmodal"
-                    >
+                    <button type="submit" class="btn btn-primary" :disabled="disabled" v-show="!statusmodal">
                       <i v-show="loading" class="fa fa-spinner fa-spin"></i>
                       Simpan
                     </button>
-                    <button
-                      type="submit"
-                      class="btn btn-success"
-                      :disabled="disabled"
-                      v-show="statusmodal"
-                    >
+                    <button type="submit" class="btn btn-success" :disabled="disabled" v-show="statusmodal">
                       <i v-show="loading" class="fa fa-spinner fa-spin"></i>
                       Ubah
                     </button>
@@ -637,5 +460,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

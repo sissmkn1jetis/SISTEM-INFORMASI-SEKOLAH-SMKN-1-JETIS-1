@@ -66,6 +66,20 @@ isGuru = (req, res, next) => {
   });
 };
 
+isKabeng = (req, res, next) => {
+  User.findByPk(req.userId).then(() => {
+    if (req.role !== "kabeng") {
+      next();
+      return;
+    }
+
+    res.status(403).send({
+      message: "Require Kabeng Role!"
+    });
+    return;
+  });
+};
+
 // checkDuplicateUsernameOrEmail = (req, res, next) => {
 //   // Username
 //   User.findOne({
@@ -162,6 +176,7 @@ const authJwt = {
   // checkRolesExisted: checkRolesExisted,
   isAdmin: isAdmin,
   isGuru: isGuru,
-  isWalas: isWalas
+  isWalas: isWalas,
+  isKabeng: isKabeng
 };
 module.exports = authJwt;

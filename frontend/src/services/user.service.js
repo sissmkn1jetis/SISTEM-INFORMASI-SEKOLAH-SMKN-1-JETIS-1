@@ -16,6 +16,11 @@ class UserService {
   getAdmin() {
     return api.get('/test/admin');
   }
+
+  getKabeng() {
+    return api.get('/test/kabeng');
+  }
+
   getUser() {
     return api.get('/test/user/');
   }

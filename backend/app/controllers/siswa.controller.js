@@ -1,16 +1,23 @@
 const db = require("../models");
-const { siswa: Siswa, kelas: Kelas } = db;
+const { siswa: Siswa, kelas: Kelas, tempat_prakerin: tempatp } = db;
+//tempatp = tempatprakerin
 
 exports.getSiswa = async (req, res) => {
     try {
         let response;
         response = await Siswa.findAll({
-            attributes: ['id', 'nis', 'name', 'tgl_lahir', 'jks', 'alamat', 'kelasId'],
+            attributes: ['id', 'nis', 'name', 'tgl_lahir', 'jks', 'alamat', 'kelasId', 'tempat_pklId'],
             include: [{
                 model: Kelas,
                 attributes: ['id', 'name_kelas'],
                 as: "kelas"
-            }]
+            },
+            {
+                model: tempatp,
+                attributes: ['id', 'name_tempat'],
+                as: "tempat_prakerin"
+            },
+        ]
         });
         res.status(200).json(response);
     } catch (error) {
@@ -27,7 +34,7 @@ exports.getSiswaById = async (req, res) => {
         if (!siswa) return res.status(404).json({ msg: "Data tidak ditemukan" });
         let response;
         response = await Siswa.findOne({
-            attributes: ['id', 'nis', 'name', 'tgl_lahir', 'jks', 'alamat', 'kelasId'],
+            attributes: ['id', 'nis', 'name', 'tgl_lahir', 'jks', 'alamat', 'kelasId', 'tempat_pklId'],
             where: {
                 id: siswa.id
             }
@@ -60,7 +67,7 @@ exports.getSiswaById = async (req, res) => {
 // }
 
 exports.createSiswa = async (req, res) => {
-    const { nis, name, tgl_lahir, jks, alamat, kelasId } = req.body;
+    const { nis, name, tgl_lahir, jks, alamat, kelasId, tempat_pklId } = req.body;
     const nisSiswa = await Siswa.findOne({
         where: {
             nis: req.body.nis
@@ -75,6 +82,7 @@ exports.createSiswa = async (req, res) => {
             jks: jks,
             alamat: alamat,
             kelasId: kelasId,
+            tempat_pklId: tempat_pklId,
         });
         res.status(201).json({ msg: "Siswa Created Successfuly" });
     } catch (error) {

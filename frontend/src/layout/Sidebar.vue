@@ -142,6 +142,12 @@ export default {
       }
       return false;
     },
+    showKabeng() {
+      if (this.currentUser && this.currentUser.role) {
+        return this.currentUser.role === "kabeng";
+      }
+      return false;
+    },
   },
   methods: {
     logOut() {

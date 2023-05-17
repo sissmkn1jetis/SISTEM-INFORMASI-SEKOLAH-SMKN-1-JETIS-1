@@ -112,6 +112,6 @@ db.guru.belongsTo(db.user, { foreignKey: 'userId', targetKey: 'id' });
 // db.walas.belongsTo(db.user, { foreignKey: 'userId', targetKey: 'id' });
 
 
-db.ROLES = ["walas", "admin", "guru"];
+db.ROLES = ["walas", "admin", "guru", "kabeng"];
 
 module.exports = db;
