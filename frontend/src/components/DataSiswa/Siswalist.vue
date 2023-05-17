@@ -25,11 +25,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="card-tools">
-                  <button
-                    type="button"
-                    class="btn btn-success mb-2"
-                    @click="showModal"
-                  >
+                  <button type="button" class="btn btn-success mb-2" @click="showModal">
                     Tambah Siswa
                   </button>
                 </div>
@@ -46,6 +42,7 @@
                         <th class="align-middle text-center">JK</th>
                         <th class="align-middle text-center">Alamat</th>
                         <th class="align-middle text-center">Kelas</th>
+                        <th class="align-middle text-center">Tempat PKL</th>
                         <th class="align-middle text-center">Action</th>
                       </tr>
                     </thead>
@@ -73,18 +70,14 @@
                           {{ siswa.kelas.name_kelas }}
                         </td>
                         <td class="align-middle text-center">
-                          <a
-                            href="#"
-                            class="badge bg-info mr-2"
-                            @click="showModalEdit(siswa.id)"
-                            ><i class="fas fa-edit"></i
-                          ></a>
-                          <a
-                            href="#"
-                            class="badge bg-danger"
-                            @click="deleteData(siswa.id)"
-                            ><i class="fas fa-trash-alt"></i
-                          ></a>
+                          <!-- tempat_prakerin mengambil dari siswa controller getSiswa -->
+                          {{ siswa.tempat_prakerin.name_tempat }}
+                        </td>
+                        <td class="align-middle text-center">
+                          <a href="#" class="badge bg-info mr-2" @click="showModalEdit(siswa.id)"><i
+                              class="fas fa-edit"></i></a>
+                          <a href="#" class="badge bg-danger" @click="deleteData(siswa.id)"><i
+                              class="fas fa-trash-alt"></i></a>
                         </td>
                       </tr>
                     </tbody>
@@ -95,37 +88,18 @@
           </div>
         </div>
       </div>
-      <div
-        class="modal fade"
-        id="modalmuncul"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="modalmuncul1"
-        aria-hidden="true"
-      >
+      <div class="modal fade" id="modalmuncul" tabindex="-1" role="dialog" aria-labelledby="modalmuncul1"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h5
-                class="modal-title"
-                id="exampleModalLongTitle"
-                v-show="!statusmodal"
-              >
+              <h5 class="modal-title" id="exampleModalLongTitle" v-show="!statusmodal">
                 Tambah Siswa
               </h5>
-              <h5
-                class="modal-title"
-                id="exampleModalLongTitle"
-                v-show="statusmodal"
-              >
+              <h5 class="modal-title" id="exampleModalLongTitle" v-show="statusmodal">
                 Ubah Siswa
               </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true" @click="resetForm()">&times;</span>
               </button>
             </div>
@@ -133,145 +107,83 @@
               <div class="card card-default">
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form
-                  @submit.prevent="statusmodal ? updateData() : simpanData()"
-                >
+                <form @submit.prevent="statusmodal ? updateData() : simpanData()">
                   <div class="card-body">
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="nis"
-                        >NIS:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="nis">NIS:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="number"
-                          class="form-control"
-                          id="nis"
-                          placeholder="NIS"
-                          v-model="form.nis"
-                          required
-                        />
+                        <input type="number" class="form-control" id="nis" placeholder="NIS" v-model="form.nis"
+                          required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="name"
-                        >Name:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="name">Name:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="name"
-                          placeholder="Name"
-                          v-model="form.name"
-                          required
-                        />
+                        <input type="text" class="form-control" id="name" placeholder="Name" v-model="form.name"
+                          required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="tgl_lahir"
-                        >Tanggal Lahir:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="tgl_lahir">Tanggal Lahir:</label>
                       <div class="col-sm-9">
-                        <input
-                          type="date"
-                          class="form-control"
-                          id="tgl_lahir"
-                          placeholder="Tanggal Lahir"
-                          v-model="form.tgl_lahir"
-                          required
-                        />
+                        <input type="date" class="form-control" id="tgl_lahir" placeholder="Tanggal Lahir"
+                          v-model="form.tgl_lahir" required />
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label"
-                        >Jenis Kelamin:</label
-                      >
+                      <label class="col-sm-3 col-form-label">Jenis Kelamin:</label>
                       <div class="col-sm-9 mt-2">
                         <label class="mb-0 mr-3">
-                          <input
-                            class="mr-1"
-                            type="radio"
-                            name="jks"
-                            id="jks"
-                            value="L"
-                            v-model="form.jks"
-                          />
+                          <input class="mr-1" type="radio" name="jks" id="jks" value="L" v-model="form.jks" />
                           Laki-Laki
                         </label>
                         <label class="mb-0 mr-3">
-                          <input
-                            class="mr-1"
-                            type="radio"
-                            name="jks"
-                            id="jks"
-                            value="P"
-                            v-model="form.jks"
-                          />
+                          <input class="mr-1" type="radio" name="jks" id="jks" value="P" v-model="form.jks" />
                           Perempuan
                         </label>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="alamat"
-                        >Alamat:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="alamat">Alamat:</label>
                       <div class="col-sm-9">
-                        <textarea
-                          type="text"
-                          class="form-control"
-                          id="alamat"
-                          placeholder="Alamat"
-                          v-model="form.alamat"
-                          required
-                        ></textarea>
+                        <textarea type="text" class="form-control" id="alamat" placeholder="Alamat" v-model="form.alamat"
+                          required></textarea>
                       </div>
                     </div>
                     <div class="form-group row">
-                      <label class="col-sm-3 col-form-label" for="kelasId"
-                        >Kelas:</label
-                      >
+                      <label class="col-sm-3 col-form-label" for="kelasId">Kelas:</label>
                       <div class="col-sm-9">
-                        <select
-                          class="form-control select2"
-                          v-model="form.kelasId"
-                          required
-                        >
+                        <select class="form-control select2" v-model="form.kelasId" required>
                           <option disabled value="">-- Pilih --</option>
-                          <option
-                            v-for="kelasId in kelas"
-                            :key="kelasId.id"
-                            :value="kelasId.id"
-                          >
+                          <option v-for="kelasId in kelas" :key="kelasId.id" :value="kelasId.id">
                             {{ kelasId.name_kelas }}
                           </option>
                         </select>
                       </div>
                     </div>
+                    <!-- Prakerin Start -->
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label" for="tempat_pklId">Tempat PKL:</label>
+                      <div class="col-sm-9">
+                        <select class="form-control select2" v-model="form.tempat_pklId" required>
+                          <option disabled value="">-- Pilih --</option>
+                          <option v-for="tempat_pklId in tempatpkl" :key="tempat_pklId.id" :value="tempat_pklId.id">
+                            {{ tempat_pklId.name_tempat }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Prakerin End -->
                   </div>
                   <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-dismiss="modal"
-                      @click="resetForm()"
-                    >
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="resetForm()">
                       Close
                     </button>
-                    <button
-                      type="submit"
-                      class="btn btn-primary"
-                      :disabled="disabled"
-                      v-show="!statusmodal"
-                    >
+                    <button type="submit" class="btn btn-primary" :disabled="disabled" v-show="!statusmodal">
                       <i v-show="loading" class="fa fa-spinner fa-spin"></i>
                       Simpan
                     </button>
-                    <button
-                      type="submit"
-                      class="btn btn-success"
-                      :disabled="disabled"
-                      v-show="statusmodal"
-                    >
+                    <button type="submit" class="btn btn-success" :disabled="disabled" v-show="statusmodal">
                       <i v-show="loading" class="fa fa-spinner fa-spin"></i>
                       Ubah
                     </button>
@@ -288,6 +200,7 @@
 <script>
 import SiswaService from "../../services/siswa.service";
 import KelasService from "../../services/kelas.service";
+import TempatPService from "../../services/tempat_prakerin.service";
 import Swal from "sweetalert2";
 export default {
   data() {
@@ -296,6 +209,7 @@ export default {
       disabled: false,
       siswas: {},
       kelas: {},
+      tempatpkl: {},
       statusmodal: false,
       form: {
         id: "",
@@ -305,6 +219,7 @@ export default {
         jks: "",
         alamat: "",
         kelasId: "",
+        tempat_pklId: "",
       },
     };
   },
@@ -349,6 +264,14 @@ export default {
           console.log(e);
         });
 
+      TempatPService.getTempatP()
+        .then((response) => {
+          this.tempatpkl = response.data;
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+
       KelasService.getKelas()
         .then((response) => {
           this.kelas = response.data;
@@ -356,6 +279,7 @@ export default {
         .catch((e) => {
           console.log(e);
         });
+
       this.$Progress.finish();
     },
     getSiswaById(id) {
@@ -474,7 +398,8 @@ export default {
         (this.form.tgl_lahir = ""),
         (this.form.jks = ""),
         (this.form.alamat = ""),
-        (this.form.kelasId = "");
+        (this.form.kelasId = ""),
+        (this.form.tempat_pklId = "");
     },
   },
 };
