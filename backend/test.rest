@@ -320,3 +320,11 @@ Content-Type: application/json
     "name_kelas": "10",
     "jurusanId": 1
 }
+
+###
+//cek prakerin tempat
+GET http://localhost:8080/api/test/listtempatp
+
+###
+//get siswa
+GET http://localhost:8080/api/test/listsiswa
