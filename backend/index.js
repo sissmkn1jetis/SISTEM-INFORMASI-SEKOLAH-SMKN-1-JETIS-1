@@ -42,6 +42,7 @@ require('./app/routes/thn_ajar.routes')(app);
 require('./app/routes/siswa.routes')(app);
 require('./app/routes/walas.routes')(app);
 require('./app/routes/nk.routes')(app);
+require('./app/routes/tempat_prakerin.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
