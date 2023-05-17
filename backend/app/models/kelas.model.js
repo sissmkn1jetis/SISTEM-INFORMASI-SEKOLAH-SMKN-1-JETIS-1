@@ -4,8 +4,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false,
             validate: {
-                notEmpty: true,
-                len: [3, 100]
+                notEmpty: true
             }
         },
         jurusanId: {

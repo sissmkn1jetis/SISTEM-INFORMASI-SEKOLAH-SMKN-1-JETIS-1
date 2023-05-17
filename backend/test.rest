@@ -306,3 +306,17 @@ Content-Type: application/json
     "alamat": "Jalan Badak GG Gajah",
     "kelasId": 1
 }
+
+###
+//cek kelas
+GET http://localhost:8080/api/test/listkelas
+
+###
+//create kELAS
+POST http://localhost:8080/api/test/listkelas
+Content-Type: application/json
+
+{
+    "name_kelas": "10",
+    "jurusanId": 1
+}
