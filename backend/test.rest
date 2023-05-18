@@ -328,3 +328,27 @@ GET http://localhost:8080/api/test/listtempatp
 ###
 //get siswa
 GET http://localhost:8080/api/test/listsiswa
+
+###
+//get absensi
+GET http://localhost:8080/api/test/listabsensi
+
+###
+//delete absensi
+DELETE http://localhost:8080/api/test/listabsensi/2
+
+###
+//create absensi
+POST http://localhost:8080/api/test/listabsensi
+Content-Type: application/json
+
+{
+    "siswaId": 1,
+    "lokasi_masuk": "12345678",
+    "lokasi_pulang": "12345678",
+    "tgl_absen": "2023-05-18",
+    "jm_masuk": "07:00",
+    "jm_pulang": "16:00", 
+    "keterangan": "Masuk", 
+    "foto": "selfie.jpg",
+}
