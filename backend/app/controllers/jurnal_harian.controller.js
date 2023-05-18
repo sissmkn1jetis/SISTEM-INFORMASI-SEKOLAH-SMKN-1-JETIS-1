@@ -1,10 +1,17 @@
 const db = require("../models");
-const { jurnal_harian: JurnalH} = db;
+const { jurnal_harian: JurnalH, siswa: Siswa} = db;
 
 exports.getJurnalH = async (req, res) => {
     try {
         const response = await JurnalH.findAll({
-            attributes: ['id', 'siswaId', 'tgl_jurnal', 'jam_jurnal', 'isi_jurnal']
+            attributes: ['id', 'siswaId', 'tgl_jurnal', 'jam_jurnal', 'isi_jurnal'],
+            include: [
+                {
+                    model: Siswa,
+                    attributes: ['id', 'nis', 'name'],
+                    as: "siswa",
+                },
+            ]
         });
         res.status(200).json(response);
     } catch (error) {

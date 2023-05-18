@@ -304,7 +304,8 @@ Content-Type: application/json
     "jks": "L",
     "tgl_lahir": "2000-08-19",
     "alamat": "Jalan Badak GG Gajah",
-    "kelasId": 1
+    "kelasId": 1,
+    "tempat_pklId": 1, 
 }
 
 ###

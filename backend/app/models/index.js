@@ -65,6 +65,10 @@ db.kelas.belongsTo(db.jurusan, { as: "jurusan", });
 // db.mapel.hasMany(db.guru, { foreignKey: "mapelId", as: "guru" });
 // db.guru.belongsTo(db.mapel, { foreignKey: "mapelId", as: "mapel", });
 
+//jurnal_harian & siswa
+db.siswa.hasOne(db.jurnal_harian, { foreignKey: "siswaId", as: "jurnal_harian" });
+db.jurnal_harian.belongsTo(db.siswa, { foreignKey: "siswaId", as: "siswa" });
+
 //absensi & siswa
 db.siswa.hasOne(db.absensi, { foreignKey: "siswaId", as: "absensi" });
 db.absensi.belongsTo(db.siswa, { foreignKey: "siswaId", as: "siswa" });
