@@ -369,3 +369,7 @@ Content-Type: application/json
     "jam_jurnal": "07.00",
     "isi_jurnal": "Prakerin",
 }
+
+###
+//get izin
+GET http://localhost:8080/api/test/listizin
