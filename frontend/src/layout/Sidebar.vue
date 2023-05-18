@@ -112,6 +112,12 @@
             <p>Data Absensi</p>
           </router-link>
         </li>
+        <li v-if="showAdmin || showKabeng" class="nav-item">
+          <router-link to="/jurnalharian" class="nav-link">
+            <i class="nav-icon fas fa-home"></i>
+            <p>Data Jurnal Harian</p>
+          </router-link>
+        </li>
         <li class="nav-item">
           <a class="nav-link" @click.prevent="logOut">
             <i class="nav-icon fas fa-sign-out-alt"></i>

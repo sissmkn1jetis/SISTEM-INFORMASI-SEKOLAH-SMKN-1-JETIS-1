@@ -20,6 +20,7 @@ const NK = () => import("./components/DataNilaiKetrampilan/NKlist.vue")
 const tesNK = () => import("./components/DataNilaiKetrampilan/TesNKlist.vue")
 const TempatPrakerin = () => import("./components/DataTempatPrakerin/TempatPrakerinList.vue")
 const Absensi = () => import("./components/DataAbsensi/AbsensiList.vue")
+const JurnalH = () => import("./components/DataJurnalHarian/JurnalHList.vue")
 
 const routes = [
   {
@@ -143,6 +144,13 @@ const routes = [
         name: "absensi",
         // lazy-loaded
         component: Absensi,
+      },
+      
+      {
+        path: "/jurnalharian",
+        name: "jurnalharian",
+        // lazy-loaded
+        component: JurnalH,
       },
     ]
   },
