@@ -38,6 +38,7 @@ db.nk = require("../models/nketrampilan.model")(sequelize, Sequelize);
 db.tempat_prakerin = require("../models/tempat_prakerin.model")(sequelize, Sequelize);
 db.absensi = require("../models/absensi.model")(sequelize, Sequelize);
 db.jurnal_harian = require("../models/jurnal_harian.model")(sequelize, Sequelize);
+db.izin = require("../models/izin.model")(sequelize, Sequelize);
 
 // db.role.belongsToMany(db.user, {
 //   through: "user_roles",
@@ -64,6 +65,10 @@ db.kelas.belongsTo(db.jurusan, { as: "jurusan", });
 //guru & mapel
 // db.mapel.hasMany(db.guru, { foreignKey: "mapelId", as: "guru" });
 // db.guru.belongsTo(db.mapel, { foreignKey: "mapelId", as: "mapel", });
+
+//izin & siswa
+db.siswa.hasOne(db.izin, { foreignKey: "siswaId", as: "izin" });
+db.izin.belongsTo(db.siswa, { foreignKey: "siswaId", as: "siswa" });
 
 //jurnal_harian & siswa
 db.siswa.hasOne(db.jurnal_harian, { foreignKey: "siswaId", as: "jurnal_harian" });
