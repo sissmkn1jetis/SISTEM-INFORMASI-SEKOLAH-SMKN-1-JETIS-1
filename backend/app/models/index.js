@@ -37,6 +37,7 @@ db.walas = require("../models/walas.model")(sequelize, Sequelize);
 db.nk = require("../models/nketrampilan.model")(sequelize, Sequelize);
 db.tempat_prakerin = require("../models/tempat_prakerin.model")(sequelize, Sequelize);
 db.absensi = require("../models/absensi.model")(sequelize, Sequelize);
+db.jurnal_harian = require("../models/jurnal_harian.model")(sequelize, Sequelize);
 
 // db.role.belongsToMany(db.user, {
 //   through: "user_roles",

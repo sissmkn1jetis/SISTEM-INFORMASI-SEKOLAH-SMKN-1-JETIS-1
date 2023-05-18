@@ -352,3 +352,19 @@ Content-Type: application/json
     "keterangan": "Masuk", 
     "foto": "selfie.jpg",
 }
+
+###
+//get jurnal harian
+GET http://localhost:8080/api/test/listjurnal
+
+###
+//create jurnal harian
+POST http://localhost:8080/api/test/listjurnal
+Content-Type: application/json
+
+{
+    "siswaId": 1,
+    "tgl_jurnal": "2023-05-18",
+    "jam_jurnal": "07.00",
+    "isi_jurnal": "Prakerin",
+}
